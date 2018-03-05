@@ -2,12 +2,20 @@ from flask import Flask , render_template
 app = Flask(__name__)
 
 @app.route("/")
+def index():
+    return "Index!"
+ 
+@app.route("/hello")
 def hello():
-    return "Leonora Smells!"
-
-@app.route("/steve")
-def steve():
-    return render_template('show.html')
+    return "Hello World!"
+ 
+@app.route("/members")
+def members():
+    return "Members"
+ 
+@app.route("/members/<string:name>/")
+def getMember(name):
+    return name
 
 
 if __name__ == '__main__':
