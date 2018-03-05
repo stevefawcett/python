@@ -1,4 +1,4 @@
-from flask import Flask , render_template
+from flask import Flask, flash, redirect, render_template, request, session, abort
 app = Flask(__name__)
 
 @app.route("/")
@@ -15,7 +15,8 @@ def members():
  
 @app.route("/members/<string:name>/")
 def getMember(name):
-    return name
+     return render_template(
+        'test.html',name=name)
 
 
 if __name__ == '__main__':
